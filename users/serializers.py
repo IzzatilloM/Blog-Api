@@ -20,4 +20,5 @@ class ChangePasswordSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         old_password = attrs.get('old_password')
-        new_password = attrs.get('old_password')
+        new_password = attrs.get('new_password')
+        return attrs

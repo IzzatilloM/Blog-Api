@@ -41,7 +41,7 @@ class UserChangePasswordAPIView(APIView):
 
         if serializer.is_valid():
             data = serializer.validated_data
-            if data['old_password'] != self.request.user.password:
+            if  not self.request.user.check_password(data['old_password']):
                 return Response(
                     {
                         "success":False,
